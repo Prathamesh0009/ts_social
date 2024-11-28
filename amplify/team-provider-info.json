@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-tssocial-dev-90e53-authRole",
+      "UnauthRoleArn": "arn:aws:iam::108782094209:role/amplify-tssocial-dev-90e53-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::108782094209:role/amplify-tssocial-dev-90e53-authRole",
+      "Region": "eu-north-1",
+      "DeploymentBucketName": "amplify-tssocial-dev-90e53-deployment",
+      "UnauthRoleName": "amplify-tssocial-dev-90e53-unauthRole",
+      "StackName": "amplify-tssocial-dev-90e53",
+      "StackId": "arn:aws:cloudformation:eu-north-1:108782094209:stack/amplify-tssocial-dev-90e53/7f113030-ad70-11ef-be32-0ae72f29802d",
+      "AmplifyAppId": "d36qpcfx44exq9"
+    },
+    "categories": {
+      "auth": {
+        "tssocial1bdecb0d": {}
+      }
+    }
+  }
+}
