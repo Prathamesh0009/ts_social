@@ -29,6 +29,7 @@ flutter pub get
 ### 3. Pull Amplify Backend
 
 Run the following command to pull the existing Amplify backend configuration:
+
 amplify pull --appId d36qpcfx44exq9 --envName dev
 
 ### 4. Run the App
