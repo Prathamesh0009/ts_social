@@ -17,8 +17,8 @@ Before running the app, ensure you have:
 
 ### 1. Clone the Repository
 
-git clone <repository-url>
-cd <project-folder>
+git clone https://github.com/Prathamesh0009/ts_social.git
+cd https://github.com/Prathamesh0009/ts_social.git
 
 ### 2. Install Dependencies
 Install the required Flutter packages:
