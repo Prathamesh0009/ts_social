@@ -24,7 +24,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             left: -8,
             right: 0,
             child: Container(
-              height: MediaQuery.of(context).size.height,
+              height: MediaQuery.of(context).size.height, //Dynamically adjusts the image’s height based on the screen size.
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image:
@@ -91,7 +91,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             TextSpan(
                               text: 'Create an account',
                               style: AppStyles.blueText,
-                              recognizer: TapGestureRecognizer()
+                              recognizer: TapGestureRecognizer() //Detects taps on "Create an account" 
                                 ..onTap = () {
                                   Navigator.push(
                                     context,

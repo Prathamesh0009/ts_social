@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ts_social/constants/styles.dart';
 
 class CustomButton extends StatelessWidget {
-  final VoidCallback onPressed;
+  final VoidCallback onPressed; //represents a function with no parameters and no return value.
   final String label;
   final bool isLoading;
 
@@ -21,7 +21,7 @@ class CustomButton extends StatelessWidget {
         onPressed: isLoading ? null : onPressed,
         style: AppStyles.customButtonStyle, 
         child: isLoading
-            ? const CircularProgressIndicator(color: Colors.white)
+            ? const CircularProgressIndicator(color: Colors.black)
             : Text(
                 label,
                 style: AppStyles.customButtonText,

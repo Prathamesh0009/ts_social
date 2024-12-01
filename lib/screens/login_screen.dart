@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:ts_social/constants/styles.dart';
@@ -38,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
         setState(() => _errorMessage = e.toString());
       } finally {
         setState(() => _isLoading = false);
-      }
+      } 
     }
   }
 
@@ -98,10 +99,30 @@ class _LoginScreenState extends State<LoginScreen> {
                 isLoading: _isLoading,
               ),
               const SizedBox(height: 16.0),
-              TextButton(
-                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>const CreateAccountScreen(),),),
-                child: const Text("Don't have an account? Sign Up"),
-              ),
+              Center(
+                      child: RichText(
+                        text: TextSpan(
+                          text: "Don't have an account yet? ",
+                          style: AppStyles.greyText, 
+                          children: [
+                            TextSpan(
+                              text: 'Sign Up',
+                              style: AppStyles.blueText,
+                              recognizer: TapGestureRecognizer() //Detects taps on "Sign Upt" 
+                                ..onTap = () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const CreateAccountScreen(),
+                                    ),
+                                  );
+                                },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
               const SizedBox(height: 32.0),
               const Text(
                 'thoughtsketch',

@@ -7,9 +7,9 @@ class AmplifyService {
   // Configure Amplify
   Future<void> configureAmplify() async {
     try {
-      final authPlugin = AmplifyAuthCognito();
-      await Amplify.addPlugin(authPlugin);
-      await Amplify.configure(amplifyconfig);
+      final authPlugin = AmplifyAuthCognito(); // Creates the authentication plugin instance.
+      await Amplify.addPlugin(authPlugin); //Adds the plugin to Amplify.
+      await Amplify.configure(amplifyconfig); ///Configures Amplify using amplifyconfiguration.dart
       print('Amplify configured successfully');
     } catch (e) {
       print('Failed to configure Amplify: $e');

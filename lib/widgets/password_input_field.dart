@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ts_social/constants/styles.dart';
 
 class PasswordInputField extends StatefulWidget {
-  final TextEditingController? controller;
+  final TextEditingController? controller;  //used to control and retrieve the text input value of a text field.
   final String? Function(String?)? validator;
 
   const PasswordInputField({

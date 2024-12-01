@@ -25,7 +25,10 @@ class SocialLoginButtons extends StatelessWidget {
     }
   }
 
-  List<Widget> _buildButtons({double spacing = 0.0}) {
+// encapsulates the logic for creating the list of social login buttons.
+// Instead of writing the same code for creating buttons in multiple places (e.g., in both the Row and Column), you define it once in _buildButtons and reuse it.
+
+  List<Widget> _buildButtons({double spacing = 0.0}) { 
     return [
       OutlinedButton(
         onPressed: () {
