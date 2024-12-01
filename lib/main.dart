@@ -3,11 +3,11 @@ import 'package:ts_social/screens/welcome_screen.dart';
 import 'package:ts_social/services/amplify_service.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized(); //Ensures that Flutter is fully initialized before any asynchronous operations.
 
   // Initialize Amplify
-  final amplifyService = AmplifyService();
-  await amplifyService.configureAmplify();
+  final amplifyService = AmplifyService(); // create an instance of Amplify Service
+  await amplifyService.configureAmplify(); // configures amplify before the app starts
 
   runApp(const MainApp());
 }
