@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:ts_social/constants/styles.dart';
 import 'package:ts_social/screens/create_account_screen.dart';
-import 'package:ts_social/screens/home_screen.dart';
+import 'package:ts_social/screens/landing_screen.dart';
 import 'package:ts_social/widgets/custom_button.dart';
 import 'package:ts_social/widgets/password_input_field.dart';
 import 'package:ts_social/widgets/text_input_field.dart';
@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
           password: _passwordController.text.trim(),
         );
         if (result.isSignedIn) {
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>const HomeScreen(),),);
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>const LandingScreen(),),);
         } else {
           setState(() => _errorMessage = "Sign-in not complete");
         }
