@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:ts_social/constants/styles.dart';
-import 'package:ts_social/screens/welcome_screen.dart';
+import 'package:ts_social/screens/home_screen.dart';
 import 'package:ts_social/widgets/custom_button.dart';
 import 'package:ts_social/widgets/text_input_field.dart';
 
@@ -34,7 +34,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WelcomeScreen(),
+              builder: (context) => HomeScreen(),
             ),
           );
         } else {
