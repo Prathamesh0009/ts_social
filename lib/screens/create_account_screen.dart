@@ -26,7 +26,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
       setState(() => _isLoading = true);
 
       try {
-        final result = await Amplify.Auth.signUp(
+        await Amplify.Auth.signUp(
           username: _emailController.text.trim(),
           password: _passwordController.text.trim(),
         );
