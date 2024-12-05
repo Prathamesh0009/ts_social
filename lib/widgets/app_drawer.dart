@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ts_social/screens/settings_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -17,15 +18,18 @@ class AppDrawer extends StatelessWidget {
                   leading: const Icon(Icons.settings),
                   title: const Text('Settings'),
                   onTap: () {
-                    
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SettingsScreen(),
+                      ),
+                    );
                   },
                 ),
                 ListTile(
                   leading: const Icon(Icons.man),
                   title: const Text('Profile'),
-                  onTap: () {
-                   
-                  },
+                  onTap: () {},
                 ),
               ],
             ),
