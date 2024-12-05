@@ -34,7 +34,7 @@ class _LandingScreenState extends State<LandingScreen> {
     return Scaffold(
       appBar: AppBar(),
       drawer: const AppDrawer(),
-      body: PageView(
+      body: PageView(   // Displays the screens, allowing swiping between them
         controller: _pageController,
         onPageChanged: (index) {
           setState(() {
@@ -44,7 +44,7 @@ class _LandingScreenState extends State<LandingScreen> {
         children: _screens,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[  //Specifies that this is a list of BottomNavigationBarItem objects button
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
