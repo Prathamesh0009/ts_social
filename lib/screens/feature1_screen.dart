@@ -10,7 +10,7 @@ class Feature1Screen extends StatefulWidget {
 class _Feature1ScreenState extends State<Feature1Screen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Text("feature screen 1",textAlign: TextAlign.center,),
     );
   }
