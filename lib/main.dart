@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ts_social/screens/landing_screen.dart';
 import 'package:ts_social/screens/welcome_screen.dart';
 import 'package:ts_social/services/amplify_service.dart';
 

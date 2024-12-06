@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ts_social/screens/tab_bar_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -30,7 +31,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             leading: const Icon(Icons.widgets, color: Colors.blue),
             title: const Text('Tab Bar'),
             trailing: const Icon(Icons.arrow_forward_ios, color: Colors.grey),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>const TabBarScreen(),),);
+            },
           ),
           const Divider(),
 

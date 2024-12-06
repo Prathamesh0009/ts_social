@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ts_social/screens/feature1_screen.dart';
+import 'package:ts_social/widgets/app_drawer.dart';
 import 'package:ts_social/screens/feature2_screen.dart';
 import 'package:ts_social/screens/feature3_screen.dart';
-import 'package:ts_social/widgets/app_drawer.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({Key? key}) : super(key: key);
@@ -11,56 +11,50 @@ class LandingScreen extends StatefulWidget {
   State<LandingScreen> createState() => _LandingScreenState();
 }
 
-class _LandingScreenState extends State<LandingScreen> {
-  int _selectedIndex = 0;
-  final PageController _pageController = PageController();
+class _LandingScreenState extends State<LandingScreen>
+    with SingleTickerProviderStateMixin { //required to make animations work, such as switching between tabs
+  late TabController _tabController; // variable will be initialized later (inside initState) & which will manage the tabs in the screen
 
-  final List<Widget> _screens = [
-    const Feature1Screen(),
-    const Feature2Screen(),
-    const Feature3Screen(),
-  ];
+  @override
+  void initState() {
+    super.initState(); //Calls the parent class's initState method , This ensures that the widget is properly set up before adding custom logic.
+    _tabController = TabController(length: 3, vsync: this);  //vsync prevents animations from running when the widget is off-screen , this refers to the current widget
+  }
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    // Slide to the selected screen using PageController
-    _pageController.jumpToPage(index);
+  @override 
+  //This method is called when the widget is removed from the screen i.e. if we navigated to another page.Used to clean up resources 
+  void dispose() { 
+    _tabController.dispose(); 
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      drawer: const AppDrawer(),
-      body: PageView(   // Displays the screens, allowing swiping between them
-        controller: _pageController,
-        onPageChanged: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        children: _screens,
+      appBar: AppBar(
+        title: const Text('Thoughtsketch'),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[  //Specifies that this is a list of BottomNavigationBarItem objects button
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-          ),
+      drawer: const AppDrawer(),
+      body: TabBarView(
+        controller: _tabController,
+        children: const [
+          Feature1Screen(),
+          Feature2Screen(),
+          Feature3Screen(),
         ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
-        onTap: _onItemTapped,
+      ),
+      bottomNavigationBar: Material(
+        color: Colors.blue,
+        child: TabBar(
+          controller: _tabController,
+          indicatorColor: Colors.white,
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.white70,
+          tabs: const [
+            Tab(icon: Icon(Icons.home), text: 'Feature 1'),
+            Tab(icon: Icon(Icons.business), text: 'Feature 2'),
+            Tab(icon: Icon(Icons.school), text: 'Feature 3'),
+          ],
+        ),
       ),
     );
   }
