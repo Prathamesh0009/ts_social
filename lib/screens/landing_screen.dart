@@ -22,9 +22,10 @@ class _LandingScreenState extends State<LandingScreen>
   }
 
   @override 
-  //This method is called when the widget is removed from the screen i.e. if we navigated to another page.Used to clean up resources 
+  //This method is called when the widget is removed from the screen i.e. if we navigated to another page).
   void dispose() { 
     _tabController.dispose(); 
+    super.dispose();
   }
 
   @override
