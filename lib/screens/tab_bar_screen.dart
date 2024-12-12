@@ -28,12 +28,12 @@ class _TabBarScreenState extends State<TabBarScreen> {
       appBar: AppBar(
         title: const Text('Tab Bar'),
       ),
-      body: LayoutBuilder(
+      body: LayoutBuilder( //Dynamically adjusts child widgets based on available screen space
         builder: (context, constraints) {
           return Column(
             children: [
-              Expanded(
-                child: SingleChildScrollView(
+              Expanded( //Creates a widget that expands a child 
+                child: SingleChildScrollView( // single widget can be scrolled
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -52,13 +52,13 @@ class _TabBarScreenState extends State<TabBarScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Card(
                           elevation: 2,
-                          child: ConstrainedBox(
+                          child: ConstrainedBox( //widget that imposes additional constraints on its child
                             constraints: BoxConstraints(
                               maxHeight: constraints.maxHeight * 0.7,
                             ),
                             child: ReorderableListView.builder(
-                              shrinkWrap: true,
-                              physics: const BouncingScrollPhysics(),
+                              shrinkWrap: true, //Makes the list only occupy the necessary height instead of infinite space
+                              physics: const BouncingScrollPhysics(), //Enables a bounce effect when the user scrolls past the boundaries 
                               itemCount: _enabledFeatures.length,
                               onReorder: (oldIndex, newIndex) {
                                 setState(() {
@@ -66,8 +66,8 @@ class _TabBarScreenState extends State<TabBarScreen> {
                                     newIndex -= 1;
                                   }
                                   final Map<String, String> movedFeature =
-                                      _enabledFeatures.removeAt(oldIndex);
-                                  _enabledFeatures.insert(
+                                      _enabledFeatures.removeAt(oldIndex); //Removes the item at oldIndex from the _enabledFeatures list.
+                                  _enabledFeatures.insert(  //Inserts the previously removed item (movedFeature) at the newIndex.
                                       newIndex, movedFeature);
                                 });
                               },
@@ -77,7 +77,7 @@ class _TabBarScreenState extends State<TabBarScreen> {
                                   title: Text(_enabledFeatures[index]['title']!),
                                   subtitle: Text(_enabledFeatures[index]
                                           ['description']!),
-                                  leading: index == 0
+                                  leading: index == 0  //If the item is the first in the list ,  disable checkbox
                                       ? const Icon(Icons.check_box,
                                           color: Colors.grey)
                                       : IconButton(
@@ -121,7 +121,7 @@ class _TabBarScreenState extends State<TabBarScreen> {
                             padding: const EdgeInsets.all(8.0),
                             child: ListView.builder(
                               shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
+                              physics: const BouncingScrollPhysics(),
                               itemCount: _disabledFeatures.length,
                               itemBuilder: (context, index) {
                                 return ListTile(
